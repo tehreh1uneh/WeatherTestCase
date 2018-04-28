@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/background"
     android:orientation="vertical">
 
     <android.support.v7.widget.SearchView
@@ -15,7 +16,7 @@
         android:inputType="text"
         app:queryHint="@string/edit_text_city_hint"
         tools:focusedByDefault="false"
-        tools:iconifiedByDefault="false"/>
+        tools:iconifiedByDefault="false" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -23,5 +24,4 @@
         android:layout_height="0dp"
         android:layout_weight="9"
         tools:listitem="@layout/item_weather" />
-
 </LinearLayout>
