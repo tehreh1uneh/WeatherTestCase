@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="TextAppearance.WeatherTheme.Basic.Large" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
+
+    <style name="TextAppearance.WeatherTheme.Basic.Small" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+</resources>

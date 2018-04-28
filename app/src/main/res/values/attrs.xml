@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="WeatherTheme">
+        <attr name="textAppearanceLargeColored" format="reference"/>
+        <attr name="textAppearanceSmallColored" format="reference"/>
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:gravity="center_vertical"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal"
+    android:padding="@dimen/item_weather_padding">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/image_view_list_item_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/item_weather_icon_description"
+            tools:src="@mipmap/clear_sky" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="7"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="@dimen/item_weather_description_container_padding">
+
+        <TextView
+            android:id="@+id/text_view_list_item_date"
+            style="?attr/textAppearanceLargeColored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Wednesday 18:00" />
+
+        <TextView
+            android:id="@+id/text_view_list_item_description"
+            style="?attr/textAppearanceSmallColored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Sunny" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_view_list_item_max_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textAppearance="?attr/textAppearanceLargeColored"
+            tools:text="24" />
+
+        <TextView
+            android:id="@+id/text_view_list_item_min_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textAppearance="?attr/textAppearanceSmallColored"
+            tools:text="13" />
+    </LinearLayout>
+
+</LinearLayout>

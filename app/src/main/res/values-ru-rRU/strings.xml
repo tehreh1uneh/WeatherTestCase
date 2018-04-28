@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="edit_text_city_hint">Санкт-Петербург</string>
+    <string name="item_weather_icon_description">Изображение погоды</string>
+    <string name="language_code_open_weather_map">ru</string>
+</resources>
