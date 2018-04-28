@@ -2,10 +2,12 @@
 
     <style name="TextAppearance.WeatherTheme.Basic.Large" parent="TextAppearance.AppCompat.Large">
         <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:fontFamily">@font/roboto</item>
     </style>
 
     <style name="TextAppearance.WeatherTheme.Basic.Small" parent="TextAppearance.AppCompat.Small">
         <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:fontFamily">@font/roboto</item>
     </style>
 
 </resources>

@@ -24,16 +24,22 @@ import javax.inject.Inject
 @InjectViewState
 class WeatherPresenter(private val scheduler: Scheduler) : MvpPresenter<WeatherView>() {
 
-    @Inject
-    lateinit var dataManager: IDataManager
+    @Inject lateinit var dataManager: IDataManager
     private lateinit var searchViewSubscription: Disposable
     val listPresenter: IListPresenter<WeatherDayInfo> = WeatherListPresenter()
 
     override fun onFirstViewAttach() {
 
         super.onFirstViewAttach()
-
         viewState.init()
+        updateFromCache()
+        Timber.d("On first view attach")
+    }
+
+    /**
+     * Gets data from cache and informs View
+     */
+    private fun updateFromCache() {
 
         val weatherDayInfoList = dataManager.getLastListFromCache()
         if (weatherDayInfoList != null) {
@@ -45,19 +51,7 @@ class WeatherPresenter(private val scheduler: Scheduler) : MvpPresenter<WeatherV
         if (city != null) {
             viewState.setCity(city)
         }
-
-        Timber.d("First view attach")
-    }
-
-    /**
-     * Unsubscribes from subscription
-     */
-    override fun onDestroy() {
-        if (!searchViewSubscription.isDisposed) {
-            searchViewSubscription.dispose()
-        }
-        super.onDestroy()
-        Timber.d("Destroyed")
+        Timber.d("Updated from cache")
     }
 
     /**
@@ -95,6 +89,17 @@ class WeatherPresenter(private val scheduler: Scheduler) : MvpPresenter<WeatherV
                         }
                 )
         Timber.d("Subscription created")
+    }
+
+    /**
+     * Unsubscribes from subscription
+     */
+    fun onViewDestroy() {
+        if (!searchViewSubscription.isDisposed) {
+            searchViewSubscription.dispose()
+            Timber.d("Subscription disposed")
+        }
+        Timber.d("View destroyed")
     }
 
     /**

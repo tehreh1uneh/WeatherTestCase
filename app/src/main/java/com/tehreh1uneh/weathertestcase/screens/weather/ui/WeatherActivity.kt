@@ -23,6 +23,8 @@ class WeatherActivity : MvpAppCompatActivity(), WeatherView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
+
+        initObservables()
         Timber.d("Activity created")
     }
 
@@ -31,7 +33,6 @@ class WeatherActivity : MvpAppCompatActivity(), WeatherView {
      */
     override fun init() {
         expandSearchViewWithoutShowingKeyboard()
-        initObservables()
         initRecyclerView()
         Timber.d("Activity initialized")
     }
@@ -52,7 +53,11 @@ class WeatherActivity : MvpAppCompatActivity(), WeatherView {
      * @see WeatherPresenter.onSearchViewObservableInit
      */
     private fun initObservables() {
-        presenter.onSearchViewObservableInit(RxSearchView.queryTextChanges(search_view_city), getString(R.string.language_code_open_weather_map))
+
+        val observable = RxSearchView.queryTextChanges(search_view_city)
+        val language = getString(R.string.language_code_open_weather_map)
+
+        presenter.onSearchViewObservableInit(observable, language)
         Timber.d("Observable for Search view initialized")
     }
 
@@ -91,5 +96,10 @@ class WeatherActivity : MvpAppCompatActivity(), WeatherView {
     override fun setCity(city: String) {
         search_view_city.setQuery(city, true)
         Timber.d("City changed")
+    }
+
+    override fun onDestroy() {
+        presenter.onViewDestroy()
+        super.onDestroy()
     }
 }

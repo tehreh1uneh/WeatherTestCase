@@ -7,6 +7,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/roboto</item>
 
         <item name="textAppearanceLargeColored">@style/TextAppearance.WeatherTheme.Basic.Large</item>
         <item name="textAppearanceSmallColored">@style/TextAppearance.WeatherTheme.Basic.Small</item>
