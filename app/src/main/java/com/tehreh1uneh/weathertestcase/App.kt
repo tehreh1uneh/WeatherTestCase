@@ -1,6 +1,7 @@
 package com.tehreh1uneh.weathertestcase
 
 import android.app.Application
+import com.squareup.leakcanary.LeakCanary
 import io.paperdb.Paper
 import timber.log.Timber
 import timber.log.Timber.DebugTree
@@ -14,6 +15,15 @@ class App : Application() {
     override fun onCreate() {
 
         super.onCreate()
+
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            /* This process is dedicated to LeakCanary for heap analysis.
+             You should not init your app in this process */
+            return
+        }
+
+        /* "LeakCanary library initialization */
+        LeakCanary.install(this)
 
         /* "Paper" library initialization */
         Paper.init(this)
