@@ -22,7 +22,7 @@ class App : Application() {
             return
         }
 
-        /* "LeakCanary library initialization */
+        /* "LeakCanary" library initialization */
         LeakCanary.install(this)
 
         /* "Paper" library initialization */

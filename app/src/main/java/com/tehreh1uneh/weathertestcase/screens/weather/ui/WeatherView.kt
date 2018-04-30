@@ -23,5 +23,5 @@ interface WeatherView : MvpView {
     /**
      * Sets text in a search view
      */
-    fun setCity(city: String)
+    fun setCity(city: String, submit: Boolean = true)
 }

@@ -93,8 +93,8 @@ class WeatherActivity : MvpAppCompatActivity(), WeatherView {
     /**
      * @see WeatherView.setCity
      */
-    override fun setCity(city: String) {
-        search_view_city.setQuery(city, true)
+    override fun setCity(city: String, submit: Boolean) {
+        search_view_city.setQuery(city, submit)
         Timber.d("City changed")
     }
 
