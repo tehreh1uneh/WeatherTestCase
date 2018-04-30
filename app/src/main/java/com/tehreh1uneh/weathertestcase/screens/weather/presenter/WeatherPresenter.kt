@@ -85,7 +85,7 @@ class WeatherPresenter(private val scheduler: Scheduler) : MvpPresenter<WeatherV
                         {
                             val message = "Error during getting text from UI"
                             Timber.e(it, message)
-                            RuntimeException(message)
+                            throw RuntimeException(message)
                         }
                 )
         Timber.d("Subscription created")
