@@ -11,6 +11,6 @@ import javax.inject.Singleton
  */
 @Singleton
 @Component(modules = [DataManagerModule::class])
-interface DataManagerComponent {
+interface ApplicationComponent {
     fun inject(weatherPresenter: WeatherPresenter)
 }

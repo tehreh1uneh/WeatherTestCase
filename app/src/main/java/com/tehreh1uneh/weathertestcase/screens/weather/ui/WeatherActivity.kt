@@ -6,9 +6,9 @@ import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.jakewharton.rxbinding2.support.v7.widget.RxSearchView
+import com.tehreh1uneh.weathertestcase.App
 import com.tehreh1uneh.weathertestcase.R
-import com.tehreh1uneh.weathertestcase.di.DaggerDataManagerComponent
-import com.tehreh1uneh.weathertestcase.di.DataManagerComponent
+import com.tehreh1uneh.weathertestcase.di.ApplicationComponent
 import com.tehreh1uneh.weathertestcase.screens.weather.presenter.WeatherPresenter
 import com.tehreh1uneh.weathertestcase.screens.weather.ui.list.WeatherListAdapter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -71,12 +71,14 @@ class WeatherActivity : MvpAppCompatActivity(), WeatherView {
     /**
      * Provides Moxy presenter.
      * @see WeatherPresenter
-     * @see DataManagerComponent
+     * @see ApplicationComponent
      */
     @ProvidePresenter
     fun providePresenter(): WeatherPresenter {
         val presenter = WeatherPresenter(AndroidSchedulers.mainThread())
-        DaggerDataManagerComponent.create().inject(presenter)
+        val applicationComponent = App.applicationComponent
+
+        applicationComponent.inject(presenter)
 
         Timber.d("Presenter provided")
         return presenter

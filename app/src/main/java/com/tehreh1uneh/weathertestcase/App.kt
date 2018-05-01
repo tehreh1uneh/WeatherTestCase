@@ -2,6 +2,8 @@ package com.tehreh1uneh.weathertestcase
 
 import android.app.Application
 import com.squareup.leakcanary.LeakCanary
+import com.tehreh1uneh.weathertestcase.di.ApplicationComponent
+import com.tehreh1uneh.weathertestcase.di.DaggerApplicationComponent
 import io.paperdb.Paper
 import timber.log.Timber
 import timber.log.Timber.DebugTree
@@ -11,6 +13,11 @@ import timber.log.Timber.DebugTree
  * @see <a href="https://github.com/JakeWharton/timber">Timber</a>
  */
 class App : Application() {
+
+    companion object {
+        lateinit var applicationComponent: ApplicationComponent
+            private set
+    }
 
     override fun onCreate() {
 
@@ -34,6 +41,9 @@ class App : Application() {
         } else {
             // TODO: release tree not yet implemented
         }
+
+        /* Dagger2 Application scope component initialization */
+        applicationComponent = DaggerApplicationComponent.create()
 
         Timber.d("Application created")
     }
