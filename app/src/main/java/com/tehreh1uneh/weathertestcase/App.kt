@@ -15,8 +15,9 @@ import timber.log.Timber.DebugTree
 class App : Application() {
 
     companion object {
-        lateinit var applicationComponent: ApplicationComponent
-            private set
+
+        /* Dagger2 Application scope component initialization */
+        val applicationComponent: ApplicationComponent by lazy { DaggerApplicationComponent.create() }
     }
 
     override fun onCreate() {
@@ -41,9 +42,6 @@ class App : Application() {
         } else {
             // TODO: release tree not yet implemented
         }
-
-        /* Dagger2 Application scope component initialization */
-        applicationComponent = DaggerApplicationComponent.create()
 
         Timber.d("Application created")
     }
