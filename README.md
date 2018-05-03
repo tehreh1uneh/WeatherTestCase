@@ -10,3 +10,5 @@
 * Базовые знания [Gson](https://github.com/google/gson)
 * Работа с атрибутами, темами, стилями, шрифтами
 * Локализация en - ru. Корректно работает при смене языка устройства в рантайме
+
+![Weather screenshot](https://github.com/tehreh1uneh/WeatherTestCase/blob/master/WeatherScreenshot.png)
